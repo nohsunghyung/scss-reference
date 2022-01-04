@@ -1,0 +1,19 @@
+#content {
+  background-color: $base-color;
+}
+.list-item-container {
+  margin-top: 10px;
+}
+.list-item-container .list-item {
+  float: left;
+  text-overflow: ellipsis;
+}
+.list-item-container .list-item .text {
+  font-size: 15px;
+}
+.list-item-container .list-item .text {
+  width: 100% / 4;
+  @include multi-ellipsis(2, 1.5, true);
+  @include size(120px, 130px);
+  @include animate(scaleX(1.2), 0.2s);
+}

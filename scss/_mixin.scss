@@ -1,0 +1,31 @@
+@mixin centerPosition {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin multi-ellipsis($line, $line-height: 1.5em, $height-fixed: false) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  line-height: $line-height * 1em;
+  @if $height-fixed == true {
+    height: ($line * $line-height) * 1em;
+    max-height: ($line * $line-height) * 1em;
+  } @else {
+    max-height: ($line * $line-height) * 1em;
+  }
+}
+
+@mixin size($width: 100px, $height: 100px) {
+  width: $width;
+  height: $height;
+}
+
+@mixin animate($type, $second: 0.3s) {
+  transform: $type;
+  transition: $second;
+}
