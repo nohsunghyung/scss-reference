@@ -36,7 +36,7 @@
 - **버전확인** : node-sass -v
 - **기본 사용 명령어** : node-sass scss/style.scss css/style.css --output-style compressed
 - **watch 명령어** : node-sass --watch scss/style.scss css/style.css --output-style compressed
-- 파일 생성시 주의사항 : 최종 빌드파일을 제외하고는 파일명 앞에 \_를 붙힌다
+- **파일 생성시 주의사항 : 최종 빌드파일을 제외하고는 파일명 앞에 \_를 붙힌다**
   <br/>
 
 ### 3. SCSS 활용
@@ -81,7 +81,7 @@
   }
   ```
 
-- ### 선택자
+- #### 선택자
 
   ```scss
   .list-content {
@@ -98,7 +98,8 @@
       &.active {
         // 본인선택자
       }
-      &:after {
+      &:after,
+      &:first-child {
         // 본인 가상선택자
       }
       #content & {
@@ -159,6 +160,7 @@
   $primary: #ff237a;
   $warning: #ff9582;
 
+  // 사용법
   .list-item {
     li {
       color: $primary;
@@ -168,7 +170,7 @@
 
   <br/>
 
-- #### mixin
+- #### mixin - 지정한 스타일 반환
 
   1. centerPosition(요소를 중앙으로)
 
@@ -179,6 +181,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  // 사용법
+  .list-item {
+    @include centerPosition();
+  }
   ```
 
   2. size(width 와 height를 쉽게)
@@ -188,9 +195,14 @@
     width: $width;
     height: $height;
   }
+
+  // 사용법
+  .list-item {
+    @include size(100px);
+  }
   ```
 
-  3. 여러줄 말줄임<br/>
+  3. 여러줄 말줄임
 
   ```scss
   @mixin multi-ellipsis($line, $line-height: 1.5em, $height-fixed: false) {
@@ -201,23 +213,122 @@
     -webkit-line-clamp: $line;
     line-height: $line-height * 1em;
     @if $height-fixed == true {
+      // 고정 높이일경우
       height: ($line * $line-height) * 1em;
       max-height: ($line * $line-height) * 1em;
     } @else {
+      // 높이 가변일경우
       max-height: ($line * $line-height) * 1em;
     }
   }
+
+  // 사용법
+  .text {
+    @include multi-ellipsis(2, 1.5, true);
+  }
   ```
 
-  <br/>
+  4. 스크린리더에서만 이용하게끔
 
-  ### 4.SCSS 사용시 주의사항
+  ```scss
+  @mixin blind() {
+    position: absolute !important;
+    display: block;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    border: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    &.focusable:active,
+    &.focusable:focus {
+      position: static;
+      height: auto;
+      width: auto;
+      margin: 0;
+      clip: auto;
+      overflow: visible;
+    }
+  }
+
+  // 사용법
+  .text {
+    @include blind;
+  }
+  ```
+
+- #### 함수 - 연산된 값 반환
+
+  1. rem 계산
+
+  ```scss
+  @function rem($px, $base: $base-font-size) {
+    @return $px / $base * 1rem;
+  }
+
+  // 사용법
+  .list-item {
+    font-size: rem(16px);
+  }
+  ```
+
+  - 참고: SASS 내장함수
+    https://lunuloopp.tistory.com/entry/Sass-%EB%AC%B8%EB%B2%95-%EC%A0%95%EB%A6%AC-8-Sass%EB%82%B4%EC%9E%A5%ED%95%A8%EC%88%98%EB%93%A4
+
+    <br/>
+
+  ### 4.단축키 설정으로 빠른 SCSS 작업
+
+  ctrl + shift + p -> snippets -> 언어별 설정
+
+  ```json
+  "Print to console": [
+    {
+      "prefix": "+es;",
+      "body": [
+        "@include ellipsis;",
+      ],
+      "description": "ellipsis"
+    },
+    {
+      "prefix": "+me;",
+      "body": [
+        "@include multi-ellipsis($1);",
+      ],
+      "description": "multi ellipsis"
+    },
+    {
+      "prefix": "+cf;",
+      "body": [
+        "@include cf;",
+      ],
+      "description": "clearfix"
+    },
+    {
+      "prefix": "+sz;",
+      "body": [
+        "@include size($1);",
+      ],
+      "description": "size"
+    },
+    {
+      "prefix": "+mq;",
+      "body": [
+        "@media (max-width: $1) {$2}",
+      ],
+      "description": "mediaquery"
+    }
+  ]
+  ```
+
+  ### 5.SCSS 사용시 주의사항
 
   - 이미지 경로는 css파일 기준으로
   - 로드맵이 간혹 틀릴경우가 있음 (클래스명으로 검색)
   - css작성시 클래스 단계를 많이 하는경우는 좋지않음(유니크한 클래스 작명)
   - SCSS 작업후 다른사람이 css만 변경하게 될경우 SCSS와의 싱크가 맞지않아 코드가 빠질 우려가있음
     (css만 변경되었을경우는 css문법을 SCSS문법으로 교체 후 다시 SCSS작성 - 혼자 작업일경우는 상관없음)
-    변환 사이트 - http://css2sass.herokuapp.com/
+    - 변환 사이트 - http://css2sass.herokuapp.com/
 
-  ### 5. gulp 사용
+  ### 6. gulp 사용
