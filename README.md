@@ -285,7 +285,7 @@
 
   // 사용법
   .list-item {
-    font-size: rem(16px);
+    font-size: rem(16px);****
   }
   ```
 
@@ -346,5 +346,8 @@
   - SCSS 작업후 다른사람이 css만 변경하게 될경우 SCSS와의 싱크가 맞지않아 코드가 빠질 우려가있음
     (css만 변경되었을경우는 css문법을 SCSS문법으로 교체 후 다시 SCSS작성 - 혼자 작업일경우는 상관없음)
     - 변환 사이트 - http://css2sass.herokuapp.com/
+  - 저장 후 스타일이 안먹거나 아무런 반응이 없을경우 터미널을 열어 에러 확인!
 
   ### 6. gulp 사용
+
+  To be continue..
