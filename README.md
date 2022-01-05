@@ -34,8 +34,10 @@
 - **node-sass** 글로벌 설치
 - **npm i -g node-sass** (오류 발생시 npm rebuild node-sass)
 - **버전확인** : node-sass -v
-- **기본 사용 명령어** : node-sass scss/style.scss css/style.css --output-style compressed
+- **기본 사용 명령어** : node-sass scss/style.scss css/style.css
+- **css 정렬 변경** : node-sass scss/style.scss css/style.css --output-style compressed
 - **watch 명령어** : node-sass --watch scss/style.scss css/style.css --output-style compressed
+- **source map 보기** : node-sass --watch scss/style.scss css/style.css --source-map true --output-style compressed
 - **파일 생성시 주의사항 : 최종 빌드파일을 제외하고는 파일명 앞에 \_를 붙힌다**
   <br/>
 
@@ -140,14 +142,13 @@
   }
 
   // 미디어 쿼리 셋팅
-  $tb: 1200px;
-  $mo-l: 768px;
-  $mo-s: 400px;
+  $tablet: 1200px;
+  $mobile: 768px;
 
   .list-item {
     width: 1200px;
     margin: 0 auto;
-    @media (max-width: $mo-l) {
+    @media (max-width: $mobile) {
       width: 100%;
     }
   }
