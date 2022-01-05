@@ -171,6 +171,21 @@
 
   <br/>
 
+- #### extend - 지정한 스타일 상속
+
+  ```scss
+  .list-a {
+    width: 100px;
+    height: 100px;
+    font-size: 20px;
+    background-color: #fff;
+  }
+  .list-b {
+    @extend .list-a; // list-a의 css를 그대로 상속
+    border: 1px solid #ddd;
+  }
+  ```
+
 - #### mixin - 지정한 스타일 반환
 
   1. centerPosition(요소를 중앙으로)
