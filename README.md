@@ -341,13 +341,47 @@
   ### 5.SCSS 사용시 주의사항
 
   - 이미지 경로는 css파일 기준으로
-  - 로드맵이 간혹 틀릴경우가 있음 (클래스명으로 검색)
   - css작성시 클래스 단계를 많이 하는경우는 좋지않음(유니크한 클래스 작명)
   - SCSS 작업후 다른사람이 css만 변경하게 될경우 SCSS와의 싱크가 맞지않아 코드가 빠질 우려가있음
     (css만 변경되었을경우는 css문법을 SCSS문법으로 교체 후 다시 SCSS작성 - 혼자 작업일경우는 상관없음)
+
+  ### 6. node-sass 사용시 단점
+
+  - 저장을 눌렀을때 에러가 종종 발생(터미널 열어 에러확인 되면 다시 저장)
+  - 프로젝트에 맞는 명령어를 직접 입력해야 하는 번거로움
+    - (node-sass --watch scss/style.scss css/style.css --output-style compressed)
+  - 로드맵이 간혹 틀릴경우가 있음 (클래스명으로 검색)
     - 변환 사이트 - http://css2sass.herokuapp.com/
-  - 저장 후 스타일이 안먹거나 아무런 반응이 없을경우 터미널을 열어 에러 확인!
 
-  ### 6. gulp 사용
+  ### 7. lite-server 사용
 
-  To be continue..
+  #### 개요
+
+  - 프로젝트 작업시 가상서버를 열어주고 작업물 저장시 자동으로 새로고침 해주는 node 패키지
+  - 모바일에서도 같은 Wi-fi 사용시 IP로 접근가능
+
+  #### 설치법
+
+  - 해당 프로젝트 경로에서 **npm init**으로 **package.json** 생성
+  - **npm i --save-dev lite-server** (save-dev란? 배포시 필요없고 작업할때만 필요한 프로그램)
+  - package.json 파일 열어 **"dev": "lite-server"** 명령어 추가(아래참조)
+
+  ```json
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "lite-server"
+    },
+  ```
+
+  - **npm run dev** 명령어를 치면 가상서버 작동
+  - url경로에 알맞은 html경로 입력
+
+  ### gulp 사용
+
+- 개요
+
+  - 반복적이고 자주 사용되는 일을 자동화시켜주는 빌드 시스템(sass컴파일링, include, for문, if문 등등)
+
+- 설치법
+  - **npm i -g gulp** 전역설치(전역설치 후에도 로컬 설 해줘야 할수있음)
+  - gulp 로컬설치 명령어 **npm i gulp --save-dev**
