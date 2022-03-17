@@ -350,4 +350,7 @@
 
   ### 6. gulp 사용
 
-  To be continue..
+  #### 1.gulp 설치
+
+  - `npm install gulp -g`를 이용해 gulp 글로벌 설치
+  - gulp.js 및 package.json이 있는 프로젝트에 `npm install 또는 npm i`

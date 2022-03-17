@@ -1,0 +1,23 @@
+{
+  "name": "scss",
+  "version": "1.0.0",
+  "description": "- SASS보다 SCSS가 뒤에 나왔고 여러가지 문법의 차이가 있지만 SCSS가 더 넓은 범용성과 CSS의 호환성 등의 장점으로 SCSS를 사용하기를 권장하고 있다.(공식문법도 SCSS를 기준으로 나와있다고 함) 따라서 SASS는 통상적으로 SCSS라고 부르기도 함\r   - **sass**\r   ```scss\r     .list-item {\r       width: 100px\r       float: left\r       li\r         margin: 0 auto;\r         &:last-child\r           margin-right: 20px;\r     }\r   ```\r   - **scss**\r   ```scss\r   .list-item {\r     width: 100px;\r     float: left;\r     li {\r       margin: 0 auto;\r       &:last-child {\r         margin-right: 20px;\r       }\r     }\r   }\r   ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "zoe": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nohsunghyung/scss-reference.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nohsunghyung/scss-reference/issues"
+  },
+  "homepage": "https://github.com/nohsunghyung/scss-reference#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

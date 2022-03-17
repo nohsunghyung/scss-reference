@@ -1,0 +1,57 @@
+// 요소를 중앙으로
+@mixin positionCenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 사이즈 작성
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// 여러줄 말줄임
+@mixin multi-ellipsis($line, $line-height: 1.5em, $height-fixed: false) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  line-height: $line-height * 1em;
+  @if $height-fixed == true {
+    // 고정 높이일경우
+    height: ($line * $line-height) * 1em;
+    max-height: ($line * $line-height) * 1em;
+  } @else {
+    // 높이 가변일경우
+    max-height: ($line * $line-height) * 1em;
+  }
+}
+
+// 스크린리더에서만 이용하게끔
+@mixin blind() {
+  position: absolute !important;
+  display: block;
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  &.focusable:active,
+  &.focusable:focus {
+    position: static;
+    height: auto;
+    width: auto;
+    margin: 0;
+    clip: auto;
+    overflow: visible;
+  }
+}
+
+@function rem($px, $base: $base-font-size) {
+  @return $px / $base * 1rem;
+}
