@@ -462,4 +462,5 @@ ctrl + shift + p -> snippets -> 언어별 설정
 #### prettier 적용안될때
 
 https://yjg-lab.tistory.com/91
+
 https://velog.io/@elliottjeong/VSC-Extension-Prettier%EC%9D%B4-%EC%A0%81%EC%9A%A9%EB%90%98%EC%A7%80-%EC%95%8A%EB%8A%94-%EC%98%A4%EB%A5%98
