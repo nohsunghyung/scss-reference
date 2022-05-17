@@ -435,6 +435,7 @@ ctrl + shift + p -> snippets -> 언어별 설정
 ```html
 <!-- include시 타입 넘겨주기 -->
 @@include('../../includes/test.html',{type:'primary'})
+
 <!-- 태그 분기처리 -->
 @@if(type == 'primary') {
 <header id="header" class="primary"></header>
@@ -444,6 +445,7 @@ ctrl + shift + p -> snippets -> 언어별 설정
 
 <!-- 변수 보내주는 파일 -->
 @@include('../../includes/test.html',{activeIndex:7})
+
 <!-- 클래스에 if문 넣기 -->
 <div class="tab-item @@if(activeIndex == 7) {active}"></div>
 ```
