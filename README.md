@@ -395,7 +395,7 @@ ctrl + shift + p -> snippets -> 언어별 설정
 - 빌드(scss / html) > 작업완료후 html 및 css 빌드를 위함
   - `gulp build`
 
-1. ##### include
+1. <span style="background-color: red"></span> ##### include
 
 - **header / footer / resources / popup** 등 모든 파일에 들어가야하는 파일들을 하나의 파일로 관리하며 수정시 include의 파일만 수정함으로써 모든 페이지에 적용됨
 - include 할 파일을 만든후 `@@include('../../includes/header.html')` 형식으로 작성
@@ -452,10 +452,14 @@ ctrl + shift + p -> snippets -> 언어별 설정
 
 #### gulp 유의사항
 
-- include / if문 / for문등을 사용할때 문법 오류가 나거나 파일경로가 다를때는 watch가 풀리게 되므로 자동 새로고침이 안될때는 **터미널을 열어 오류 확인**
-- html-dev / scss 파일만 수정한다 (**html/ 안의 파일 및 css는 수정 X**)
-- gulp dev했을때 안될경우 html폴더가 있는지 확인 하고 없으면 **빈 html 폴더를 만들어준다.**
-- 작업완료 후 파일 전달시는 `gulp build` 명령어를 입력해 파일 빌드후 **html 폴더**와 **resources 폴더**를 전달한다.(css에 소스맵 제거 및 html의 필요없는 파일을 제거하기 위함)
-- 마크업은 **html-dev** 폴더내에서만 작업(html폴더 내 작업시 빌드 후 작업내용 삭제됨)
-- 스타일도 **scss폴더** 내에서만 작업(style.css에 작업시 빌드 후 작업내용 삭제됨)
+- include / if문 / for문등을 사용할때 문법 오류가 나거나 파일경로가 다를때는 watch가 풀리게 되므로 자동 새로고침이 안될때는 **<span style="color:red">터미널을 열어 오류 확인</span>**
+- gulp dev했을때 안될경우 html폴더가 있는지 확인 하고 없으면 **<span style="color:red">빈 html 폴더를 만들어준다.</span>**
+- 작업완료 후 파일 전달시는 `gulp build` 명령어를 입력해 파일 빌드후 <span style="color:red">html 폴더</span>와 <span style="color:red">resources 폴더</span>를 전달한다.(css에 소스맵 제거 및 html의 필요없는 파일을 제거하기 위함)
+- 마크업은 **<span style="color:red">html-dev 폴더내에서만 작업</span>** (html폴더 내 작업시 빌드 후 작업내용 삭제됨)
+- 스타일도 **<span style="color:red">scss폴더</span>** 내에서만 작업(style.css에 작업시 빌드 후 작업내용 삭제됨)
 - 파일 검색시 html/ 내부의 파일이 검색안되게끔 vscode 환경설정 > exclude 검색 > `html/**/**.html` 패턴추가
+
+#### prettier 적용안될때
+
+https://yjg-lab.tistory.com/91
+https://velog.io/@elliottjeong/VSC-Extension-Prettier%EC%9D%B4-%EC%A0%81%EC%9A%A9%EB%90%98%EC%A7%80-%EC%95%8A%EB%8A%94-%EC%98%A4%EB%A5%98
