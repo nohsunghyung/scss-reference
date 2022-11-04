@@ -300,42 +300,77 @@ ctrl + shift + p -> snippets -> 언어별 설정
 
 ```json
 "Print to console": [
-  {
-    "prefix": "+es;",
-    "body": [
-      "@include ellipsis;",
-    ],
-    "description": "ellipsis"
-  },
-  {
-    "prefix": "+me;",
-    "body": [
-      "@include multi-ellipsis($1);",
-    ],
-    "description": "multi ellipsis"
-  },
-  {
-    "prefix": "+cf;",
-    "body": [
-      "@include cf;",
-    ],
-    "description": "clearfix"
-  },
-  {
-    "prefix": "+sz;",
-    "body": [
-      "@include size($1);",
-    ],
-    "description": "size"
-  },
-  {
-    "prefix": "+mq;",
-    "body": [
-      "@media (max-width: $1) {$2}",
-    ],
-    "description": "mediaquery"
-  }
-]
+    {
+      "prefix": "+es;",
+      "body": [
+        "@include ellipsis;",
+      ],
+      "description": "ellipsis"
+    },
+    {
+      "prefix": "+me;",
+      "body": [
+        "@include multi-ellipsis($1);",
+      ],
+      "description": "multi ellipsis"
+    },
+    {
+      "prefix": "+cf;",
+      "body": [
+        "@include cf;",
+      ],
+      "description": "clearfix"
+    },
+    {
+      "prefix": "+sz;",
+      "body": [
+        "@include size($1);",
+      ],
+      "description": "size"
+    },
+    {
+      "prefix": "+bs;",
+      "body": [
+        "box-sizing: border-box;",
+      ],
+      "description": "box-sizing"
+    },
+    {
+      "prefix": "+mq;",
+      "body": [
+        "@media (max-width: $1) {$2}",
+      ],
+      "description": "mediaquery"
+    },
+    {
+      "prefix": "+minq;",
+      "body": [
+        "@media (min-width: $1) {$2}",
+      ],
+      "description": "mediaquery"
+    },
+    {
+      "prefix": "+bgi;",
+      "body": [
+        "@include _background-image('$1');",
+      ],
+      "description": "background-image"
+    },
+    {
+      "prefix": "+bg;",
+      "body": [
+        "@include _background('$1');",
+      ],
+      "description": "background"
+    },
+    {
+      "prefix": "+vw;",
+      "body": [
+        "@include _vw($1,$2);",
+      ],
+      "description": "vw"
+    }
+  ]
 ```
 
 ### 5.SCSS 사용시 주의사항
@@ -459,6 +494,8 @@ ctrl + shift + p -> snippets -> 언어별 설정
 - 마크업은 **<span style="color:red">html-dev 폴더내에서만 작업</span>** (html폴더 내 작업시 빌드 후 작업내용 삭제됨)
 - 스타일도 **<span style="color:red">scss폴더</span>** 내에서만 작업(style.css에 작업시 빌드 후 작업내용 삭제됨)
 - 파일 검색시 html/ 내부의 파일이 검색안되게끔 vscode 환경설정 > exclude 검색 > `html/**/**.html` 패턴추가
+
+#### 
 
 #### prettier 적용안될때
 
