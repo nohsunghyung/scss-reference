@@ -387,6 +387,7 @@ ctrl + shift + p -> snippets -> 언어별 설정
 - `npm i -g gulp` 전역설치(전역설치 후에도 로컬 설치 해줘야 할수있음)
 - gulp 로컬설치 명령어 `npm i gulp --save-dev`
 - gulp.js 및 package.json이 있는 프로젝트에 `npm install 또는 npm i`
+- gulp 설치가 안될경우 `node -v` 확인후 node.js 홈페이지에서 14.14.0 버전으로 재설치
 
 #### 사용법
 
