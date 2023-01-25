@@ -423,6 +423,7 @@ ctrl + shift + p -> snippets -> 언어별 설정
 - gulp 로컬설치 명령어 `npm i gulp --save-dev`
 - gulp.js 및 package.json이 있는 프로젝트에 `npm install 또는 npm i`
 - gulp 설치가 안될경우 `node -v` 확인후 node.js 홈페이지에서 14.14.0 버전으로 재설치
+- gulp dev 입력했을때 gulp를 찾을수 없다는 문구나 설치가 안될 경우는 기본터미널을 git bash로 변경해서 진행(git 설치시 git bash 설치됨)
 
 #### 사용법
 
